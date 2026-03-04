@@ -10,13 +10,31 @@ A ready-to-use backend API for user registration, email verification, and login.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `POST` | `/signup` | Register a new user |
-| `POST` | `/login` | Login and get a JWT token |
-| `GET` | `/verify/:token` | Verify email (from the link sent to email) |
+| `POST` | `/api/auth/signup` | Register a new user |
+| `POST` | `/api/auth/login` | Login and get a JWT token |
+| `GET` | `/api/auth/verify/:token` | Verify email (from the link sent to email) |
+| `GET` | `/health` | Check if server is running |
 
 ---
 
-## 🔵 POST `/api/auth/signup`
+## � GET `/health`
+
+**What it does:** Checks if the server is online and running. No login required.
+
+**Open in browser:** `http://localhost:5000/health`
+
+**Response** `200`:
+```json
+{
+  "status": "OK",
+  "uptime": "42s",
+  "timestamp": "2026-03-04T17:11:58.000Z"
+}
+```
+
+---
+
+## �🔵 POST `/api/auth/signup`
 
 **What it does:** Creates a new user and sends a verification email.
 
