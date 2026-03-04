@@ -2,7 +2,9 @@
 
 A ready-to-use backend API for user registration, email verification, and login. Just connect your frontend and you're done.
 
-**Base URL:** `http://localhost:5000/api/auth`
+🌐 **Live API:** [`https://login-and-signup-api-mmrz.onrender.com`](https://login-and-signup-api-mmrz.onrender.com)
+
+**Base URL:** `https://login-and-signup-api-mmrz.onrender.com/api/auth`
 
 ---
 
@@ -21,7 +23,7 @@ A ready-to-use backend API for user registration, email verification, and login.
 
 **What it does:** Checks if the server is online and running. No login required.
 
-**Open in browser:** `http://localhost:5000/health`
+**Open in browser:** [`https://login-and-signup-api-mmrz.onrender.com/health`](https://login-and-signup-api-mmrz.onrender.com/health)
 
 **Response** `200`:
 ```json
@@ -142,7 +144,7 @@ The backend middleware will verify it automatically.
 
 ```jsx
 const handleSignup = async () => {
-  const res = await fetch("http://localhost:5000/api/auth/signup", {
+  const res = await fetch("https://login-and-signup-api-mmrz.onrender.com/api/auth/signup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password })
@@ -158,7 +160,7 @@ const handleSignup = async () => {
 
 ```jsx
 const handleLogin = async () => {
-  const res = await fetch("http://localhost:5000/api/auth/login", {
+  const res = await fetch("https://login-and-signup-api-mmrz.onrender.com/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password })
@@ -180,7 +182,7 @@ const handleLogin = async () => {
 const fetchProfile = async () => {
   const token = localStorage.getItem("token");
 
-  const res = await fetch("http://localhost:5000/api/protected-route", {
+  const res = await fetch("https://login-and-signup-api-mmrz.onrender.com/api/protected-route", {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -198,7 +200,7 @@ const fetchProfile = async () => {
 import axios from "axios";
 
 const login = async (email, password) => {
-  const { data } = await axios.post("http://localhost:5000/api/auth/login", {
+  const { data } = await axios.post("https://login-and-signup-api-mmrz.onrender.com/api/auth/login", {
     email,
     password
   });
@@ -228,7 +230,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch("https://login-and-signup-api-mmrz.onrender.com/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
