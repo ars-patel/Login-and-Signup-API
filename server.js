@@ -7,13 +7,14 @@ const authRoutes = require("./routes/auth.routes");
 
 const app = express();
 
-app.use(
-    cors({
-        origin: "*",
-        methods: ["GET", "POST"],
-        allowedHeaders: ["Content-Type", "Authorization"]
-    })
-);
+const corsOptions = {
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Handle preflight requests for all routes
 
 app.use(express.json());
 
