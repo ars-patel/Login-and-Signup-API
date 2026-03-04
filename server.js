@@ -20,6 +20,14 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected"));
 
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        uptime: `${Math.floor(process.uptime())}s`,
+        timestamp: new Date().toISOString()
+    });
+});
+
 app.use("/api/auth", authRoutes);
 
 app.listen(process.env.PORT, () => {
