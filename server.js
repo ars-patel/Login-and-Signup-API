@@ -8,7 +8,7 @@ const authRoutes = require("./routes/auth.routes");
 const app = express();
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "*", // Allow all origins (like a public API)
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 };
